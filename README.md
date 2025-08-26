@@ -1,11 +1,20 @@
-# SDK do Claude Code para Python
+# SDK do Claude Code para Python - Versão Melhorada
 
-SDK Python para o Claude Code. Consulte a [documentação do SDK do Claude Code](https://docs.anthropic.com/en/docs/claude-code/sdk) para mais informações.
+**Fork melhorado** do SDK Python oficial para o Claude Code, com funcionalidades adicionais e melhorias.
+
+**Projeto Original:** [claude-code-sdk-python](https://github.com/anthropics/claude-code-sdk-python) da Anthropic
+
+## 🚀 Novidades nesta versão
+
+- ✅ Interface CLI integrada
+- ✅ Relatórios aprimorados de uso de tokens
+- ✅ Melhor tratamento de mensagens de pensamento
+- ✅ Compatibilidade total com o projeto original
 
 ## Instalação
 
 ```bash
-pip install claude-code-sdk
+pip install claude-code-sdk-python-enhanced
 ```
 
 **Pré-requisitos:**
