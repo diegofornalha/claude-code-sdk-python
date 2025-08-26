@@ -1,132 +1,132 @@
-# Claude Code SDK for Python
+# SDK do Claude Code para Python
 
-Python SDK for Claude Code. See the [Claude Code SDK documentation](https://docs.anthropic.com/en/docs/claude-code/sdk) for more information.
+SDK Python para o Claude Code. Consulte a [documentação do SDK do Claude Code](https://docs.anthropic.com/en/docs/claude-code/sdk) para mais informações.
 
-## Installation
+## Instalação
 
 ```bash
 pip install claude-code-sdk
 ```
 
-**Prerequisites:**
+**Pré-requisitos:**
 - Python 3.10+
 - Node.js 
 - Claude Code: `npm install -g @anthropic-ai/claude-code`
 
-## Quick Start
+## Início Rápido
 
 ```python
 import anyio
 from claude_code_sdk import query
 
 async def main():
-    async for message in query(prompt="What is 2 + 2?"):
+    async for message in query(prompt="Quanto é 2 + 2?"):
         print(message)
 
 anyio.run(main)
 ```
 
-## Usage
+## Uso
 
-### Basic Query
+### Consulta Básica
 
 ```python
 from claude_code_sdk import query, ClaudeCodeOptions, AssistantMessage, TextBlock
 
-# Simple query
-async for message in query(prompt="Hello Claude"):
+# Consulta simples
+async for message in query(prompt="Olá Claude"):
     if isinstance(message, AssistantMessage):
         for block in message.content:
             if isinstance(block, TextBlock):
                 print(block.text)
 
-# With options
+# Com opções
 options = ClaudeCodeOptions(
-    system_prompt="You are a helpful assistant",
+    system_prompt="Você é um assistente útil",
     max_turns=1
 )
 
-async for message in query(prompt="Tell me a joke", options=options):
+async for message in query(prompt="Me conte uma piada", options=options):
     print(message)
 ```
 
-### Using Tools
+### Usando Ferramentas
 
 ```python
 options = ClaudeCodeOptions(
     allowed_tools=["Read", "Write", "Bash"],
-    permission_mode='acceptEdits'  # auto-accept file edits
+    permission_mode='acceptEdits'  # aceitar automaticamente edições de arquivo
 )
 
 async for message in query(
-    prompt="Create a hello.py file", 
+    prompt="Crie um arquivo hello.py", 
     options=options
 ):
-    # Process tool use and results
+    # Processar uso de ferramentas e resultados
     pass
 ```
 
-### Working Directory
+### Diretório de Trabalho
 
 ```python
 from pathlib import Path
 
 options = ClaudeCodeOptions(
-    cwd="/path/to/project"  # or Path("/path/to/project")
+    cwd="/caminho/para/projeto"  # ou Path("/caminho/para/projeto")
 )
 ```
 
-## API Reference
+## Referência da API
 
 ### `query(prompt, options=None)`
 
-Main async function for querying Claude.
+Função assíncrona principal para consultar o Claude.
 
-**Parameters:**
-- `prompt` (str): The prompt to send to Claude
-- `options` (ClaudeCodeOptions): Optional configuration
+**Parâmetros:**
+- `prompt` (str): O prompt para enviar ao Claude
+- `options` (ClaudeCodeOptions): Configuração opcional
 
-**Returns:** AsyncIterator[Message] - Stream of response messages
+**Retorna:** AsyncIterator[Message] - Stream de mensagens de resposta
 
-### Types
+### Tipos
 
-See [src/claude_code_sdk/types.py](src/claude_code_sdk/types.py) for complete type definitions:
-- `ClaudeCodeOptions` - Configuration options
-- `AssistantMessage`, `UserMessage`, `SystemMessage`, `ResultMessage` - Message types
-- `TextBlock`, `ToolUseBlock`, `ToolResultBlock` - Content blocks
+Veja [src/claude_code_sdk/types.py](src/claude_code_sdk/types.py) para definições completas de tipos:
+- `ClaudeCodeOptions` - Opções de configuração
+- `AssistantMessage`, `UserMessage`, `SystemMessage`, `ResultMessage` - Tipos de mensagem
+- `TextBlock`, `ToolUseBlock`, `ToolResultBlock` - Blocos de conteúdo
 
-## Error Handling
+## Tratamento de Erros
 
 ```python
 from claude_code_sdk import (
-    ClaudeSDKError,      # Base error
-    CLINotFoundError,    # Claude Code not installed
-    CLIConnectionError,  # Connection issues
-    ProcessError,        # Process failed
-    CLIJSONDecodeError,  # JSON parsing issues
+    ClaudeSDKError,      # Erro base
+    CLINotFoundError,    # Claude Code não instalado
+    CLIConnectionError,  # Problemas de conexão
+    ProcessError,        # Processo falhou
+    CLIJSONDecodeError,  # Problemas ao analisar JSON
 )
 
 try:
-    async for message in query(prompt="Hello"):
+    async for message in query(prompt="Olá"):
         pass
 except CLINotFoundError:
-    print("Please install Claude Code")
+    print("Por favor, instale o Claude Code")
 except ProcessError as e:
-    print(f"Process failed with exit code: {e.exit_code}")
+    print(f"Processo falhou com código de saída: {e.exit_code}")
 except CLIJSONDecodeError as e:
-    print(f"Failed to parse response: {e}")
+    print(f"Falha ao analisar resposta: {e}")
 ```
 
-See [src/claude_code_sdk/_errors.py](src/claude_code_sdk/_errors.py) for all error types.
+Veja [src/claude_code_sdk/_errors.py](src/claude_code_sdk/_errors.py) para todos os tipos de erro.
 
-## Available Tools
+## Ferramentas Disponíveis
 
-See the [Claude Code documentation](https://docs.anthropic.com/en/docs/claude-code/settings#tools-available-to-claude) for a complete list of available tools.
+Consulte a [documentação do Claude Code](https://docs.anthropic.com/en/docs/claude-code/settings#tools-available-to-claude) para uma lista completa das ferramentas disponíveis.
 
-## Examples
+## Exemplos
 
-See [examples/quick_start.py](examples/quick_start.py) for a complete working example.
+Veja [examples/quick_start.py](examples/quick_start.py) para um exemplo completo e funcional.
 
-## License
+## Licença
 
 MIT
