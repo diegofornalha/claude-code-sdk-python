@@ -41,9 +41,12 @@ def print_response(message):
             if isinstance(block, TextBlock):
                 print(f"\n📝 Claude: {block.text}")
     elif isinstance(message, ResultMessage):
-        if message.usage:
-            print(f"\n📊 Tokens: {message.usage.input_tokens} entrada, {message.usage.output_tokens} saída")
-        if message.total_cost_usd:
+        if hasattr(message, 'usage') and message.usage:
+            if hasattr(message.usage, 'input_tokens'):
+                print(f"\n📊 Tokens: {message.usage.input_tokens} entrada, {message.usage.output_tokens} saída")
+            elif isinstance(message.usage, dict):
+                print(f"\n📊 Tokens: {message.usage.get('input_tokens', 0)} entrada, {message.usage.get('output_tokens', 0)} saída")
+        if hasattr(message, 'total_cost_usd') and message.total_cost_usd:
             print(f"💰 Custo: ${message.total_cost_usd:.6f}")
 
 
