@@ -9,7 +9,7 @@ from unittest.mock import AsyncMock, patch
 import anyio
 import pytest
 
-from claude_code_sdk import (
+from src import (
     AssistantMessage,
     ClaudeCodeOptions,
     ClaudeSDKClient,
@@ -19,7 +19,7 @@ from claude_code_sdk import (
     UserMessage,
     query,
 )
-from claude_code_sdk._internal.transport.subprocess_cli import SubprocessCLITransport
+from src._internal.transport.subprocess_cli import SubprocessCLITransport
 
 
 class TestClaudeSDKClientStreaming:
@@ -30,7 +30,7 @@ class TestClaudeSDKClientStreaming:
 
         async def _test():
             with patch(
-                "claude_code_sdk._internal.transport.subprocess_cli.SubprocessCLITransport"
+                "src._internal.transport.subprocess_cli.SubprocessCLITransport"
             ) as mock_transport_class:
                 mock_transport = AsyncMock()
                 mock_transport_class.return_value = mock_transport
@@ -50,7 +50,7 @@ class TestClaudeSDKClientStreaming:
 
         async def _test():
             with patch(
-                "claude_code_sdk._internal.transport.subprocess_cli.SubprocessCLITransport"
+                "src._internal.transport.subprocess_cli.SubprocessCLITransport"
             ) as mock_transport_class:
                 mock_transport = AsyncMock()
                 mock_transport_class.return_value = mock_transport
@@ -74,7 +74,7 @@ class TestClaudeSDKClientStreaming:
 
         async def _test():
             with patch(
-                "claude_code_sdk._internal.transport.subprocess_cli.SubprocessCLITransport"
+                "src._internal.transport.subprocess_cli.SubprocessCLITransport"
             ) as mock_transport_class:
                 mock_transport = AsyncMock()
                 mock_transport_class.return_value = mock_transport
@@ -93,7 +93,7 @@ class TestClaudeSDKClientStreaming:
 
         async def _test():
             with patch(
-                "claude_code_sdk._internal.transport.subprocess_cli.SubprocessCLITransport"
+                "src._internal.transport.subprocess_cli.SubprocessCLITransport"
             ) as mock_transport_class:
                 mock_transport = AsyncMock()
                 mock_transport_class.return_value = mock_transport
@@ -121,7 +121,7 @@ class TestClaudeSDKClientStreaming:
 
         async def _test():
             with patch(
-                "claude_code_sdk._internal.transport.subprocess_cli.SubprocessCLITransport"
+                "src._internal.transport.subprocess_cli.SubprocessCLITransport"
             ) as mock_transport_class:
                 mock_transport = AsyncMock()
                 mock_transport_class.return_value = mock_transport
@@ -145,7 +145,7 @@ class TestClaudeSDKClientStreaming:
 
         async def _test():
             with patch(
-                "claude_code_sdk._internal.transport.subprocess_cli.SubprocessCLITransport"
+                "src._internal.transport.subprocess_cli.SubprocessCLITransport"
             ) as mock_transport_class:
                 mock_transport = AsyncMock()
                 mock_transport_class.return_value = mock_transport
@@ -175,7 +175,7 @@ class TestClaudeSDKClientStreaming:
 
         async def _test():
             with patch(
-                "claude_code_sdk._internal.transport.subprocess_cli.SubprocessCLITransport"
+                "src._internal.transport.subprocess_cli.SubprocessCLITransport"
             ) as mock_transport_class:
                 mock_transport = AsyncMock()
                 mock_transport_class.return_value = mock_transport
@@ -218,7 +218,7 @@ class TestClaudeSDKClientStreaming:
 
         async def _test():
             with patch(
-                "claude_code_sdk._internal.transport.subprocess_cli.SubprocessCLITransport"
+                "src._internal.transport.subprocess_cli.SubprocessCLITransport"
             ) as mock_transport_class:
                 mock_transport = AsyncMock()
                 mock_transport_class.return_value = mock_transport
@@ -274,7 +274,7 @@ class TestClaudeSDKClientStreaming:
 
         async def _test():
             with patch(
-                "claude_code_sdk._internal.transport.subprocess_cli.SubprocessCLITransport"
+                "src._internal.transport.subprocess_cli.SubprocessCLITransport"
             ) as mock_transport_class:
                 mock_transport = AsyncMock()
                 mock_transport_class.return_value = mock_transport
@@ -306,7 +306,7 @@ class TestClaudeSDKClientStreaming:
             )
 
             with patch(
-                "claude_code_sdk._internal.transport.subprocess_cli.SubprocessCLITransport"
+                "src._internal.transport.subprocess_cli.SubprocessCLITransport"
             ) as mock_transport_class:
                 mock_transport = AsyncMock()
                 mock_transport_class.return_value = mock_transport
@@ -325,7 +325,7 @@ class TestClaudeSDKClientStreaming:
 
         async def _test():
             with patch(
-                "claude_code_sdk._internal.transport.subprocess_cli.SubprocessCLITransport"
+                "src._internal.transport.subprocess_cli.SubprocessCLITransport"
             ) as mock_transport_class:
                 mock_transport = AsyncMock()
                 mock_transport_class.return_value = mock_transport
@@ -474,7 +474,7 @@ class TestClaudeSDKClientEdgeCases:
 
         async def _test():
             with patch(
-                "claude_code_sdk._internal.transport.subprocess_cli.SubprocessCLITransport"
+                "src._internal.transport.subprocess_cli.SubprocessCLITransport"
             ) as mock_transport_class:
                 mock_transport = AsyncMock()
                 mock_transport_class.return_value = mock_transport
@@ -504,7 +504,7 @@ class TestClaudeSDKClientEdgeCases:
 
         async def _test():
             with patch(
-                "claude_code_sdk._internal.transport.subprocess_cli.SubprocessCLITransport"
+                "src._internal.transport.subprocess_cli.SubprocessCLITransport"
             ) as mock_transport_class:
                 mock_transport = AsyncMock()
                 mock_transport_class.return_value = mock_transport
@@ -523,7 +523,7 @@ class TestClaudeSDKClientEdgeCases:
 
         async def _test():
             with patch(
-                "claude_code_sdk._internal.transport.subprocess_cli.SubprocessCLITransport"
+                "src._internal.transport.subprocess_cli.SubprocessCLITransport"
             ) as mock_transport_class:
                 mock_transport = AsyncMock()
                 mock_transport_class.return_value = mock_transport

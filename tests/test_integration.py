@@ -8,14 +8,14 @@ from unittest.mock import AsyncMock, patch
 import anyio
 import pytest
 
-from claude_code_sdk import (
+from src import (
     AssistantMessage,
     ClaudeCodeOptions,
     CLINotFoundError,
     ResultMessage,
     query,
 )
-from claude_code_sdk.types import ToolUseBlock
+from src.sdk_types import ToolUseBlock
 
 
 class TestIntegration:
@@ -26,7 +26,7 @@ class TestIntegration:
 
         async def _test():
             with patch(
-                "claude_code_sdk._internal.client.SubprocessCLITransport"
+                "src._internal.transport.subprocess_cli.SubprocessCLITransport"
             ) as mock_transport_class:
                 mock_transport = AsyncMock()
                 mock_transport_class.return_value = mock_transport
@@ -81,7 +81,7 @@ class TestIntegration:
 
         async def _test():
             with patch(
-                "claude_code_sdk._internal.client.SubprocessCLITransport"
+                "src._internal.transport.subprocess_cli.SubprocessCLITransport"
             ) as mock_transport_class:
                 mock_transport = AsyncMock()
                 mock_transport_class.return_value = mock_transport
@@ -164,7 +164,7 @@ class TestIntegration:
 
         async def _test():
             with patch(
-                "claude_code_sdk._internal.client.SubprocessCLITransport"
+                "src._internal.transport.subprocess_cli.SubprocessCLITransport"
             ) as mock_transport_class:
                 mock_transport = AsyncMock()
                 mock_transport_class.return_value = mock_transport

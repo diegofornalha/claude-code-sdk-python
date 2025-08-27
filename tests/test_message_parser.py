@@ -2,9 +2,9 @@
 
 import pytest
 
-from claude_code_sdk._errors import MessageParseError
-from claude_code_sdk._internal.message_parser import parse_message
-from claude_code_sdk.types import (
+from src._errors import MessageParseError
+from src._internal.message_parser import parse_message
+from src.sdk_types import (
     AssistantMessage,
     ResultMessage,
     SystemMessage,

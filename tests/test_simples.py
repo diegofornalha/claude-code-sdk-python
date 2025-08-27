@@ -9,17 +9,17 @@ print("🔍 Testando importação do Claude Code SDK...")
 
 try:
     # Tenta importar o SDK
-    import claude_code_sdk
-    print(f"✅ SDK importado! Versão: {claude_code_sdk.__version__}")
+    import src
+    print(f"✅ SDK importado! Versão: {src.__version__}")
     
     # Verifica módulos disponíveis
-    from claude_code_sdk import query
+    from src import query
     print("✅ Função 'query' disponível")
     
-    from claude_code_sdk.client import ClaudeSDKClient
+    from src.client import ClaudeSDKClient
     print("✅ Classe 'ClaudeSDKClient' disponível")
     
-    from claude_code_sdk.types import PermissionMode, McpStdioServerConfig
+    from src.sdk_types import PermissionMode, McpStdioServerConfig
     print("✅ Types importados (PermissionMode, McpStdioServerConfig)")
     
     print("\n🎉 PROVA COMPLETA: O Claude Code SDK está 100% FUNCIONAL!")
@@ -29,7 +29,7 @@ except ImportError as e:
     print(f"❌ Erro: {e}")
     print("\nVerificando estrutura de arquivos...")
     import os
-    src_path = Path(__file__).parent / 'src' / 'claude_code_sdk'
+    src_path = Path(__file__).parent / 'src'
     if src_path.exists():
         print(f"✅ Diretório SDK existe: {src_path}")
         print("📁 Arquivos encontrados:")

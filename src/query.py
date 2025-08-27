@@ -6,7 +6,7 @@ from typing import Any
 
 from ._internal.client import InternalClient
 from ._internal.transport import Transport
-from .types import ClaudeCodeOptions, Message
+from .sdk_types import ClaudeCodeOptions, Message
 
 
 async def query(

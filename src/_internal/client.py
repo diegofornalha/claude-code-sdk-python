@@ -3,7 +3,7 @@
 from collections.abc import AsyncIterable, AsyncIterator
 from typing import Any
 
-from ..types import (
+from ..sdk_types import (
     ClaudeCodeOptions,
     Message,
 )

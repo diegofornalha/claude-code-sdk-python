@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "claude-code-sdk-python-enhanced"
+name = "claude-code-sdk-py"
 version = "0.0.21"
 description = "Enhanced Python SDK for Claude Code - Fork with additional features"
 readme = "README.md"
@@ -40,15 +40,8 @@ dev = [
     "ruff>=0.1.0",
 ]
 
-[project.urls]
-Homepage = "https://github.com/SEU_USUARIO/claude-code-sdk-python"
-Documentation = "https://github.com/SEU_USUARIO/claude-code-sdk-python#readme"
-Issues = "https://github.com/SEU_USUARIO/claude-code-sdk-python/issues"
-Repository = "https://github.com/SEU_USUARIO/claude-code-sdk-python"
-Original = "https://github.com/anthropics/claude-code-sdk-python"
-
 [tool.hatch.build.targets.wheel]
-packages = ["src/claude_code_sdk"]
+packages = ["src"]
 
 [tool.hatch.build.targets.sdist]
 include = [
@@ -106,4 +99,4 @@ ignore = [
 ]
 
 [tool.ruff.lint.isort]
-known-first-party = ["claude_code_sdk"]
+known-first-party = ["src"]

@@ -8,12 +8,12 @@ from unittest.mock import AsyncMock, MagicMock
 import anyio
 import pytest
 
-from claude_code_sdk._errors import CLIJSONDecodeError
-from claude_code_sdk._internal.transport.subprocess_cli import (
+from src._errors import CLIJSONDecodeError
+from src._internal.transport.subprocess_cli import (
     _MAX_BUFFER_SIZE,
     SubprocessCLITransport,
 )
-from claude_code_sdk.types import ClaudeCodeOptions
+from src.sdk_types import ClaudeCodeOptions
 
 
 class MockTextReceiveStream:

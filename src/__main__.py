@@ -168,7 +168,6 @@ Exemplos:
   python -m claude_code_sdk --example              # Executar exemplos
   python -m claude_code_sdk --tools Read,Write     # Com ferramentas específicas
   
-Para mais informações: https://github.com/anthropics/claude-code-sdk-python
         """
     )
     

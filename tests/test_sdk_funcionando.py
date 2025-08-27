@@ -7,15 +7,15 @@ import asyncio
 import sys
 from pathlib import Path
 
-# Adiciona o diretório src ao path para importar o SDK
-sys.path.insert(0, str(Path(__file__).parent / 'src'))
+# Adiciona o diretório pai ao path para importar o SDK
+sys.path.insert(0, str(Path(__file__).parent.parent))
 
 try:
-    # Testa importação básica
-    from claude_code_sdk import __version__
-    from claude_code_sdk import query
-    from claude_code_sdk.client import ClaudeSDKClient
-    from claude_code_sdk.types import Message, ToolCall, ToolResult
+    # Testa importação básica - ajustado para nova estrutura
+    from src import __version__
+    from src import query
+    from src.client import ClaudeSDKClient
+    from src.sdk_types import Message, ToolUseBlock as ToolCall, ToolResultBlock as ToolResult
     
     print("✅ IMPORTAÇÃO SUCESSO!")
     print(f"   Versão do SDK: {__version__}")

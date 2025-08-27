@@ -1,6 +1,6 @@
 """Tests for Claude SDK error handling."""
 
-from claude_code_sdk import (
+from src import (
     ClaudeSDKError,
     CLIConnectionError,
     CLIJSONDecodeError,

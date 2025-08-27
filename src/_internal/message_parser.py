@@ -4,7 +4,7 @@ import logging
 from typing import Any
 
 from .._errors import MessageParseError
-from ..types import (
+from ..sdk_types import (
     AssistantMessage,
     ContentBlock,
     Message,

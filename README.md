@@ -1,26 +1,98 @@
 # SDK do Claude Code para Python - Versão Melhorada
 
-**Fork melhorado** do SDK Python oficial para o Claude Code, com funcionalidades adicionais e melhorias.
-
-**Projeto Original:** [claude-code-sdk-python](https://github.com/anthropics/claude-code-sdk-python) da Anthropic
-
-## 🚀 Novidades nesta versão
-
-- ✅ Interface CLI integrada
-- ✅ Relatórios aprimorados de uso de tokens
-- ✅ Melhor tratamento de mensagens de pensamento
-- ✅ Compatibilidade total com o projeto original
-
 ## Instalação
 
+### Via PyPI (Produção)
 ```bash
-pip install claude-code-sdk-python-enhanced
+pip install claude-code-sdk-py
 ```
+
+### Instalação Local (Desenvolvimento)
 
 **Pré-requisitos:**
 - Python 3.10+
 - Node.js 
-- Claude Code: `npm install -g @anthropic-ai/claude-code`
+- Claude Code: `sudo npm install -g @anthropic-ai/claude-code`
+
+#### Passos para instalação local:
+
+1. **Clone o repositório e navegue até a pasta:**
+```bash
+cd /home/codable/terminal/claude-code-sdk-python
+```
+
+2. **Crie um ambiente virtual Python:**
+```bash
+python3 -m venv venv
+```
+
+3. **Ative o ambiente virtual e instale o SDK:**
+```bash
+source venv/bin/activate
+pip install -e .
+```
+
+4. **Teste a instalação:**
+```bash
+python -m src "Olá, Claude!"
+```
+
+## Interfaces CLI Disponíveis
+
+O SDK oferece duas interfaces de linha de comando:
+
+### 1. Interface Rápida: `./wrappers_cli/claude`
+Execução direta que não trava após responder. Ideal para scripts e automação.
+
+```bash
+cd wrappers_cli
+chmod +x claude
+./claude "Qual é a capital do Brasil?"
+```
+
+### 2. Interface Completa: `python -m src`
+CLI completo com modos interativo, chat e ferramentas avançadas.
+
+```bash
+# Modo interativo
+python -m src
+
+# Query única
+python -m src "Sua pergunta"
+
+# Modo chat com contexto
+python -m src --chat
+
+# Com ferramentas específicas
+python -m src --tools Read,Write "Leia o arquivo config.json"
+```
+
+Veja mais detalhes em [wrappers_cli/README.md](wrappers_cli/README.md)
+
+## Problemas Resolvidos Durante a Instalação
+
+### Conflito de Nomes com Módulo Python
+
+**Problema:** O arquivo `types.py` do projeto conflitava com o módulo `types` padrão do Python, causando erro de importação circular.
+
+**Solução:** 
+1. Renomear `types.py` para `sdk_types.py`
+2. Atualizar todas as importações no projeto:
+```bash
+find src -name "*.py" -exec sed -i 's/from \.types import/from .sdk_types import/g; s/from \.\.types import/from ..sdk_types import/g' {} \;
+```
+
+### Erro de Permissão ao Instalar Globalmente
+
+**Problema:** `pip install -e .` falhava sem ambiente virtual.
+
+**Solução:** Criar e usar um ambiente virtual Python isolado.
+
+### Erro de Importação Relativa
+
+**Problema:** `ImportError: attempted relative import with no known parent package`
+
+**Solução:** Executar como módulo usando `python -m src` em vez de `python src/__main__.py`
 
 ## Início Rápido
 
@@ -136,6 +208,3 @@ Consulte a [documentação do Claude Code](https://docs.anthropic.com/en/docs/cl
 
 Veja [examples/quick_start.py](examples/quick_start.py) para um exemplo completo e funcional.
 
-## Licença
-
-MIT

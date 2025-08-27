@@ -10,7 +10,7 @@ from ._errors import (
 from ._internal.transport import Transport
 from .client import ClaudeSDKClient
 from .query import query
-from .types import (
+from .sdk_types import (
     AssistantMessage,
     ClaudeCodeOptions,
     ContentBlock,

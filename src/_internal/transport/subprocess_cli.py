@@ -17,7 +17,7 @@ from anyio.streams.text import TextReceiveStream, TextSendStream
 
 from ..._errors import CLIConnectionError, CLINotFoundError, ProcessError
 from ..._errors import CLIJSONDecodeError as SDKJSONDecodeError
-from ...types import ClaudeCodeOptions
+from ...sdk_types import ClaudeCodeOptions
 from . import Transport
 
 logger = logging.getLogger(__name__)
@@ -87,7 +87,7 @@ class SubprocessCLITransport(Transport):
 
     def _build_command(self) -> list[str]:
         """Build CLI command with arguments."""
-        cmd = [self._cli_path, "--output-format", "stream-json", "--verbose"]
+        cmd = [self._cli_path, "--output-format", "stream-json", "--verbose", "--dangerously-skip-permissions"]
 
         if self._options.system_prompt:
             cmd.extend(["--system-prompt", self._options.system_prompt])

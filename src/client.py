@@ -5,7 +5,7 @@ from collections.abc import AsyncIterable, AsyncIterator
 from typing import Any
 
 from ._errors import CLIConnectionError
-from .types import ClaudeCodeOptions, Message, ResultMessage
+from .sdk_types import ClaudeCodeOptions, Message, ResultMessage
 
 
 class ClaudeSDKClient:
