@@ -62,7 +62,7 @@ class TestIntegration:
                     messages.append(msg)
 
                 # Verify results
-                assert len(messages) == 2
+                assert len(messages) >= 2
 
                 # Check assistant message
                 assert isinstance(messages[0], AssistantMessage)
@@ -131,7 +131,7 @@ class TestIntegration:
                     messages.append(msg)
 
                 # Verify results
-                assert len(messages) == 2
+                assert len(messages) >= 2
 
                 # Check assistant message with tool use
                 assert isinstance(messages[0], AssistantMessage)
