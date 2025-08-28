@@ -87,7 +87,7 @@ class SubprocessCLITransport(Transport):
 
     def _build_command(self) -> list[str]:
         """Build CLI command with arguments."""
-        cmd = [self._cli_path, "--output-format", "stream-json", "--verbose", "--dangerously-skip-permissions"]
+        cmd = [self._cli_path, "--output-format", "stream-json", "--verbose"]
 
         if self._options.system_prompt:
             cmd.extend(["--system-prompt", self._options.system_prompt])

@@ -1,9 +1,16 @@
 #!/usr/bin/env python3
 """Quick start example for Claude Code SDK."""
 
+import sys
+from pathlib import Path
+
+# Add src to path for import
+project_root = Path(__file__).parent.parent
+sys.path.insert(0, str(project_root))
+
 import anyio
 
-from claude_code_sdk import (
+from src import (
     AssistantMessage,
     ClaudeCodeOptions,
     ResultMessage,
